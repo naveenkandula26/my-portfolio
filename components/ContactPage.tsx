@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
-someArray.map((item, index) => { // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  return <div>{item}</div>;
-});
 export const ContactPage: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
