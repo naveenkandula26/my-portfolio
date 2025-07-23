@@ -7,20 +7,10 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      manifest: {
-        name: 'Portfolio',
-        short_name: 'Portfolio',
-        start_url: '/',
-        display: 'standalone',
-        background_color: '#1f2937',
-        theme_color: '#f97316',
-        icons: [
-          {
-            src: '/icon.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
-        ],
+      manifest: '/manifest.json',
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,png,jpg,svg,ico}'],
+        globIgnores: ['**/node_modules/**/*', 'sw.js', 'workbox-*.js'],
       },
     }),
   ],
