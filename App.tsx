@@ -23,6 +23,8 @@ function App() {
     return <div>Hello, World!</div>;
   };
 
+  export default App;
+
   const handleLogout = () => {
     setIsAuthenticated(false);
     setUser(null);
