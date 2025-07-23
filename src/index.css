@@ -2,6 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-bg: #1f2937; /* Dark gray */
+  --accent-color: #f97316; /* Vibrant orange */
+  --text-color: #f3f4f6; /* Light gray for text */
+}
+
 body {
-  @apply bg-dark-gray text-white font-sans;
+  @apply bg-[var(--primary-bg)] text-[var(--text-color)] font-sans min-h-screen;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.7s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+h1, h2, h3 {
+  @apply font-bold text-[var(--text-color)];
+}
+
+button, input, textarea {
+  @apply transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] focus:ring-opacity-50;
+}
+
+button {
+  @apply bg-[var(--accent-color)] text-white px-4 py-2 rounded-md hover:bg-orange-600;
+}
+
+input, textarea {
+  @apply bg-gray-700 text-white px-4 py-2 rounded-md border border-gray-600 focus:border-[var(--accent-color)];
+}
+
+a {
+  @apply text-[var(--accent-color)] hover:underline hover:text-orange-400 transition-colors duration-200;
+}
+
+nav {
+  @apply bg-gray-900 shadow-md;
+}
+
+section {
+  @apply py-12 px-4 sm:px-6 lg:px-8;
+}
+
+.container {
+  @apply max-w-7xl mx-auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  button, input, textarea {
+    @apply px-3 py-2;
+  }
 }
