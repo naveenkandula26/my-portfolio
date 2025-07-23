@@ -6,7 +6,6 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
-import Uploads from './components/Uploads';
 import Contact from './components/Contact';
 import Login from './components/Login';
 
@@ -27,7 +26,6 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/uploads" element={<Uploads user={user} />} />
         <Route path="/contact" element={<Contact user={user} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
       </Routes>
