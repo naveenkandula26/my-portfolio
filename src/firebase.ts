@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signInWithPhoneNumber, RecaptchaVerifier } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -16,5 +16,3 @@ export const db = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
 export const signInWithEmail = signInWithEmailAndPassword;
 export const signInWithGoogle = signInWithPopup;
-export const signInWithPhone = signInWithPhoneNumber;
-export const Recaptcha = RecaptchaVerifier;
