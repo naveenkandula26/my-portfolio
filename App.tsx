@@ -19,6 +19,10 @@ function App() {
     setUser(userData);
   };
 
+  const App: React.FC = () => {
+    return <div>Hello, World!</div>;
+  };
+
   const handleLogout = () => {
     setIsAuthenticated(false);
     setUser(null);
