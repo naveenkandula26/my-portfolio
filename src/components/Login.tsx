@@ -3,9 +3,9 @@ import { auth, signInWithEmail, signInWithGoogle, signInWithPhone, Recaptcha, go
 import { useNavigate } from 'react-router-dom';
 
 // Extend Window interface for reCAPTCHA
-interface Window {
-  recaptchaVerifier: any;
-}
+//interface Window {
+//  recaptchaVerifier: any;
+//}
 
 const Login = ({ setUser }: { setUser: (user: any) => void }) => {
   const [email, setEmail] = useState('');
