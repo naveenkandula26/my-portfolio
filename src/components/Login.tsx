@@ -1,18 +1,10 @@
 import { useState } from 'react';
-import { auth, signInWithEmail, signInWithGoogle, signInWithPhone, Recaptcha, googleProvider } from '../firebase';
+import { auth, signInWithEmail, signInWithGoogle, googleProvider } from '../firebase';
 import { useNavigate } from 'react-router-dom';
-
-// Extend Window interface for reCAPTCHA
-//interface Window {
-//  recaptchaVerifier: any;
-//}
 
 const Login = ({ setUser }: { setUser: (user: any) => void }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [phone, setPhone] = useState('');
-  const [otp, setOtp] = useState('');
-  const [otpSent, setOtpSent] = useState(false);
   const navigate = useNavigate();
 
   const handleEmailLogin = async () => {
@@ -32,31 +24,6 @@ const Login = ({ setUser }: { setUser: (user: any) => void }) => {
       navigate('/');
     } catch (error) {
       console.error('Google login error:', error);
-    }
-  };
-
-  const handleSendOtp = async () => {
-    try {
-      window.recaptchaVerifier = new Recaptcha(auth, 'recaptcha-container', {
-        size: 'invisible',
-        callback: () => {},
-      });
-      const confirmationResult = await signInWithPhone(auth, phone, window.recaptchaVerifier);
-      setOtpSent(true);
-      (window as any).confirmationResult = confirmationResult;
-    } catch (error) {
-      console.error('Phone OTP error:', error);
-    }
-  };
-
-  const handleVerifyOtp = async () => {
-    try {
-      const confirmationResult = (window as any).confirmationResult;
-      const userCredential = await confirmationResult.confirm(otp);
-      setUser(userCredential.user);
-      navigate('/');
-    } catch (error) {
-      console.error('OTP verification error:', error);
     }
   };
 
@@ -93,43 +60,6 @@ const Login = ({ setUser }: { setUser: (user: any) => void }) => {
           >
             Login with Google
           </button>
-        </div>
-        <div className="mb-4">
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            className="w-full p-2 rounded bg-gray-700 text-white mb-2"
-            disabled={otpSent}
-          />
-          {!otpSent ? (
-            <>
-              <div id="recaptcha-container"></div>
-              <button
-                onClick={handleSendOtp}
-                className="w-full p-2 bg-orange-accent text-white rounded hover:bg-orange-600"
-              >
-                Send OTP
-              </button>
-            </>
-          ) : (
-            <>
-              <input
-                type="text"
-                placeholder="Enter OTP"
-                value={otp}
-                onChange={(e) => setOtp(e.target.value)}
-                className="w-full p-2 rounded bg-gray-700 text-white mb-2"
-              />
-              <button
-                onClick={handleVerifyOtp}
-                className="w-full p-2 bg-orange-accent text-white rounded hover:bg-orange-600"
-              >
-                Verify OTP
-              </button>
-            </>
-          )}
         </div>
       </div>
     </section>
