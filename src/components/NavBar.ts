@@ -14,7 +14,6 @@ const NavBar = ({ user, setUser }: NavBarProps) => {
         <Link to="/" className="hover:text-orange-accent">Home</Link>
         <Link to="/about" className="hover:text-orange-accent">About</Link>
         <Link to="/projects" className="hover:text-orange-accent">Projects</Link>
-        <Link to="/uploads" className="hover:text-orange-accent">Uploads</Link>
         <Link to="/contact" className="hover:text-orange-accent">Contact</Link>
         {user ? (
           <button onClick={() => auth.signOut().then(() => setUser(null))} className="hover:text-orange-accent">
