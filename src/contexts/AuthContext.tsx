@@ -1,16 +1,14 @@
-// Authentication context for Firebase
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithPhoneNumber, RecaptchaVerifier } from 'firebase/auth';
 
 const firebaseConfig = {
-  // Placeholder: Replace with your Firebase config
-  apiKey: 'YOUR_API_KEY',
-  authDomain: 'YOUR_AUTH_DOMAIN',
-  projectId: 'YOUR_PROJECT_ID',
-  storageBucket: 'YOUR_STORAGE_BUCKET',
-  messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-  appId: 'YOUR_APP_ID',
+  apiKey: 'AIzaSyC9QsYnvpbNhOIU4sS7aKxKy0s-uyjMBhI', // Modified
+  authDomain: 'my-portfolio-f5c46.firebaseapp.com', // Modified
+  projectId: 'my-portfolio-f5c46', // Modified
+  storageBucket: 'my-portfolio-f5c46.firebasestorage.app', // Modified
+  messagingSenderId: '891751225530', // Modified
+  appId: '1:891751225530:web:99a2544b4a9b8fd7448a83', // Modified
 };
 
 const app = initializeApp(firebaseConfig);
