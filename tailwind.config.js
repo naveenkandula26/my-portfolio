@@ -6,7 +6,22 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {}
+    extend: {
+      colors: {
+        primary: "#1E293B", // dark blue
+        accent: "#F59E0B",  // amber
+      },
+      spacing: {
+        '128': '32rem',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
+    }
   },
-  plugins: []
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio')
+  ]
 }
