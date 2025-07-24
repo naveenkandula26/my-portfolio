@@ -8,8 +8,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "allowJs": false,
-    "checkJs": false,
+    "allowJs": true, // Modified: Changed from false to true to allow JavaScript files
+    "checkJs": true, // Modified: Changed from false to true to enable type checking for JS files
     "baseUrl": "src",
     "paths": {
       "@/*": ["./*"]
