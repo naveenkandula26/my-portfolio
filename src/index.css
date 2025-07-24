@@ -1,0 +1,26 @@
+/* Global styles with Tailwind and custom theme variables */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-orange: #f97316;
+  --primary-orange-dark: #ea580c;
+  --background-light: #ffffff;
+  --background-dark: #111827;
+  --text-light: #1f2937;
+  --text-dark: #f3f4f6;
+}
+
+.dark {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+.card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 transition-transform hover:scale-105;
+}
+
+.btn-primary {
+  @apply bg-[var(--primary-orange)] hover:bg-[var(--primary-orange-dark)] text-white font-semibold py-2 px-4 rounded-lg transition-colors;
+}
